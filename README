@@ -1,0 +1,48 @@
+######################################################
+# Calculator - Calculate force between two particles #
+######################################################
+
+Copyright 2023 Paul Bauer <paul.bauer.q@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#######################
+# Summary of the tool #
+#######################
+
+This tool is a very simple way to evaluate the force between two particles,
+at user given coordinates and with a user selected force function.
+
+###################################
+# Installation and file structure #
+###################################
+
+The tool requires CMake (at least version 3.16 is what I chose as the minimum)
+to configure the build and a C++17 compliant compiler to be build. In addition,
+the command line parser utility library needs to be fetched using Conan, at least
+version .
+
+To install, pull from github (git clone github.com/acmnpv/forcecalculator.git),
+create a build directory 
+
+   mkdir build
+   cd build
+
+And then, from this new directory, run CMake with default settings
+
+   cmake ../forcecalculator
+
+Followed by a normal invocation of make to compile and link the executable
+
+   make -j
+
+Tests can be run using ctest
+
+   ctest -DExperimentalTest --output-on-failure
+
+The tool will be placed in the build folder and can then be used as is on the system.
+
