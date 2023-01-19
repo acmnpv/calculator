@@ -91,8 +91,18 @@ jobs:
     - name: Get Conan
       uses: turtlebrowser/get-conan@v1.0
       
-    - name: Create default profile
-      run: conan profile new default --detect
+    - name: Detect Windows environment
+      shell: cmake -P {0}
+      run: |
+        if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
+          execute_process(
+            COMMAND "${{ matrix.config.environment_script }}" && set
+            OUTPUT_FILE environment_script_output.txt
+          )
+        endif()  
+
+    - name: Detect default profile
+      run: conan profile new default --detect  
       
     - name: Update profile
       run: conan profile update settings.compiler.libcxx=libstdc++11 default
@@ -103,8 +113,6 @@ jobs:
     - name: Configure
       shell: cmake -P {0}
       run: |
-        set(ENV{CXX} ${{ matrix.config.cxx }})
-        set(ENV{CC} ${{ matrix.config.cc }})
         if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
           execute_process(
             COMMAND "${{ matrix.config.environment_script }}" && set
@@ -193,8 +201,8 @@ jobs:
         endif()
 
     - name: Pack
-      working-directory: bin
-      run: cmake -E tar cfv ../${{ matrix.config.artifact }} --format=7zip .
+      working-directory: build/bin
+      run: cmake -E tar cfv ../../${{ matrix.config.artifact }} --format=7zip .
 
     - name: Upload
       uses: actions/upload-artifact@v3
@@ -267,7 +275,6 @@ jobs:
       run: cmake -E tar xfv ${{ matrix.config.artifact }}     
 
     - name: Run regression tests
-      working-directory: bin
       run: cmake -E calculator -h
 
   release:
