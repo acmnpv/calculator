@@ -193,7 +193,7 @@ jobs:
         path: ./${{ matrix.config.artifact }}
         name: ${{ matrix.config.artifact }}
 
-  tests:
+   tests:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
     needs: build  
