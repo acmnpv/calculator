@@ -196,7 +196,6 @@ jobs:
   test-job:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
-    needs: build 
     strategy:
       fail-fast: false
       matrix:
@@ -219,6 +218,8 @@ jobs:
 
           }
 
+    needs: build
+    steps:      
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:
