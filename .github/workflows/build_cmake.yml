@@ -9,7 +9,7 @@ env:
   CCACHE_VERSION: 4.7.3
 
 jobs:
-  build:
+  build-job:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
     strategy:
@@ -193,10 +193,10 @@ jobs:
         path: ./${{ matrix.config.artifact }}
         name: ${{ matrix.config.artifact }}
 
-   tests:
+  test-job:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
-    needs: build  
+    needs: build 
     strategy:
       fail-fast: false
       matrix:
