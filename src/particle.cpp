@@ -6,4 +6,3 @@
  */
 
 #include "particle.h"
-

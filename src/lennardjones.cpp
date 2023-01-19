@@ -7,26 +7,26 @@
 
 #include "lennardjones.h"
 
-namespace {
+namespace
+{
 
 static double singleForce(double coord, double lj12, double lj6, double r, double r6, double r12)
 {
-    return ((12 * lj12 / (r12 * r)) - ( 6 * lj6 / (r6 * r))) * coord / r;
-} 
-
+    return ((12 * lj12 / (r12 * r)) - (6 * lj6 / (r6 * r))) * coord / r;
 }
+
+} // namespace
 
 ParticleCoords LennardJonesForceFunction::evaluateForce(double distance, ParticleCoords vector)
 {
-    const double r2 = distance * distance;
-    const double r6 = r2*r2*r2;
-    const double r12 = r6*r6;
+    const double   r2  = distance * distance;
+    const double   r6  = r2 * r2 * r2;
+    const double   r12 = r6 * r6;
     ParticleCoords result;
-    result.coordX = singleForce(vector.coordX, lj12_, lj6_, distance, r6, r12);    
-    result.coordY = singleForce(vector.coordY, lj12_, lj6_, distance, r6, r12);    
-    result.coordZ = singleForce(vector.coordZ, lj12_, lj6_, distance, r6, r12);   
-   return result; 
+    result.coordX = singleForce(vector.coordX, lj12_, lj6_, distance, r6, r12);
+    result.coordY = singleForce(vector.coordY, lj12_, lj6_, distance, r6, r12);
+    result.coordZ = singleForce(vector.coordZ, lj12_, lj6_, distance, r6, r12);
+    return result;
 }
 
-LennardJonesForceFunction::~LennardJonesForceFunction()
-{}
+LennardJonesForceFunction::~LennardJonesForceFunction() {}

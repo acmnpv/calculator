@@ -11,21 +11,21 @@
  */
 
 //! Coulomb force calculation.
-class CoulombForceFunction : public IForceFunction {
+class CoulombForceFunction : public IForceFunction
+{
 
-    public:
-        CoulombForceFunction(double chargeA, double chargeB)
-            : chargeA_(chargeA), chargeB_(chargeB)
-        {}
-        ~CoulombForceFunction() override;
+public:
+    CoulombForceFunction(double chargeA, double chargeB) : chargeA_(chargeA), chargeB_(chargeB) {}
+    ~CoulombForceFunction() override;
 
-        //! Single force evaluation.
-        ParticleCoords evaluateForce(double distanceSquared, ParticleCoords vector) override;
-    private:
-        //! Partial charge on first particle.
-        double chargeA_;
-        //! Partial charge on second particle.
-        double chargeB_;
+    //! Single force evaluation.
+    ParticleCoords evaluateForce(double distanceSquared, ParticleCoords vector) override;
+
+private:
+    //! Partial charge on first particle.
+    double chargeA_;
+    //! Partial charge on second particle.
+    double chargeB_;
 };
 
 #endif

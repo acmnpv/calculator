@@ -13,22 +13,24 @@
  */
 
 //! LJ force calculation.
-class LennardJonesForceFunction : public IForceFunction {
+class LennardJonesForceFunction : public IForceFunction
+{
 
-    public:
-        LennardJonesForceFunction(double lj12A, double lj6A, double lj12B, double lj6B)
-            : lj12_(std::sqrt(lj12A * lj12B)), lj6_(std::sqrt(lj6A*lj6B))
-        {}
+public:
+    LennardJonesForceFunction(double lj12A, double lj6A, double lj12B, double lj6B) :
+        lj12_(std::sqrt(lj12A * lj12B)), lj6_(std::sqrt(lj6A * lj6B))
+    {
+    }
 
-        ~LennardJonesForceFunction() override;
+    ~LennardJonesForceFunction() override;
 
-        ParticleCoords evaluateForce(double distance, ParticleCoords vector) override;
-    private:
-        //! LennardJones 12 parameter for particle pair.
-        double lj12_;
-        //! LennardJones 6 parameter for particle pair.
-        double lj6_;
+    ParticleCoords evaluateForce(double distance, ParticleCoords vector) override;
 
+private:
+    //! LennardJones 12 parameter for particle pair.
+    double lj12_;
+    //! LennardJones 6 parameter for particle pair.
+    double lj6_;
 };
 
 #endif

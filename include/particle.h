@@ -13,12 +13,14 @@
 
 
 //! Single particle data.
-struct ParticleData {
+struct ParticleData
+{
     //! Construct for coloumb.
-    ParticleData(double partialCharge)
-        : charge(partialCharge) {}
-    ParticleData(double lennardJones12, double lennardJones6)
-        : lj12(lennardJones12), lj6(lennardJones6) {}
+    ParticleData(double partialCharge) : charge(partialCharge) {}
+    ParticleData(double lennardJones12, double lennardJones6) :
+        lj12(lennardJones12), lj6(lennardJones6)
+    {
+    }
 
     //! Access charge.
     double getCharge();
@@ -30,7 +32,7 @@ struct ParticleData {
     //! Optional Lennard Jones 12 parameter.
     std::optional<double> lj12;
     //! Optional Lennard Jones 6 parameter.
-    std::optional<double> lj6;    
+    std::optional<double> lj6;
 };
 
 #endif

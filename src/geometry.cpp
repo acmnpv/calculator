@@ -20,5 +20,6 @@ ParticleCoords vector(ParticleCoords particleA, ParticleCoords particleB)
 
 double distance(ParticleCoords vector)
 {
-    return std::sqrt((vector.coordX * vector.coordX) + (vector.coordY * vector.coordY) + (vector.coordZ * vector.coordZ));
+    return std::sqrt((vector.coordX * vector.coordX) + (vector.coordY * vector.coordY)
+                     + (vector.coordZ * vector.coordZ));
 }

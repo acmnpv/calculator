@@ -1,5 +1,5 @@
 #ifndef CALCULATOR_ENUMS_H
-#define SFDC_HASH_H
+#    define SFDC_HASH_H
 
 /*! \file
  * \brief
@@ -9,7 +9,8 @@
  */
 
 //! Enum class for different force functions.
-enum class ForceFunction : int {
+enum class ForceFunction : int
+{
     //! Value for Coulomb potential
     Coulomb,
     //! Value for 12-6 (Lennard Jones) potential

@@ -11,8 +11,9 @@
 #include "geometry.h"
 
 //! Interface defining force functions.
-class IForceFunction {
-    public:
+class IForceFunction
+{
+public:
     virtual ~IForceFunction() {}
     //! Calculation routine.
     virtual ParticleCoords evaluateForce(double distance, ParticleCoords vector) = 0;
