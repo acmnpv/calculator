@@ -281,7 +281,7 @@ jobs:
       run: cmake -E tar xfv ${{ matrix.config.artifact }}     
 
     - name: Run regression tests
-      run: cmake -E calculator -h
+      run: calculator -h
 
   release:
     if: contains(github.ref, 'tags/v')
