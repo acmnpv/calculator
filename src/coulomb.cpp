@@ -15,19 +15,18 @@ static double singleForce(double prefactor, double coord, double r3)
 {
     return prefactor * coord / r3;
 }
-}
+} // namespace
 
-CoulombForceFunction::~CoulombForceFunction()
-{}
+CoulombForceFunction::~CoulombForceFunction() {}
 
 ParticleCoords CoulombForceFunction::evaluateForce(double distance, ParticleCoords vector)
 {
-    const double r3 = distance * distance * distance;
-    const double prefactor = factor * chargeA_ * chargeB_;
+    const double   r3        = distance * distance * distance;
+    const double   prefactor = factor * chargeA_ * chargeB_;
     ParticleCoords result;
     result.coordX = singleForce(prefactor, vector.coordX, r3);
     result.coordY = singleForce(prefactor, vector.coordY, r3);
     result.coordZ = singleForce(prefactor, vector.coordZ, r3);
-    
-    return result; 
+
+    return result;
 }

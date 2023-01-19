@@ -10,7 +10,8 @@
 
 
 //! Single particle 3D coordinates.
-struct ParticleCoords {
+struct ParticleCoords
+{
     //! X coord.
     double coordX = 1.0;
     //! Y coord.
