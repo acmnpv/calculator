@@ -16,12 +16,12 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {
-            name: "Windows 2019 MSVC", artifact: "Windows-MSVC.7z",
-            os: windows-2019,
-            cc: "cl", cxx: "cl",
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-          }
+          # - {
+          #     name: "Windows 2019 MSVC", artifact: "Windows-MSVC.7z",
+          #     os: windows-2019,
+          #     cc: "cl", cxx: "cl",
+          #     environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          #   }
         - {
             name: "Linux latest Clang", artifact: "Linux.7z",
             os: ubuntu-latest,
@@ -223,11 +223,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {
-            name: "Windows 2019 MSVC", artifact: "Windows-MSVC.7z",
-            os: windows-2019,
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
-          }
+          #- {
+          #    name: "Windows 2019 MSVC", artifact: "Windows-MSVC.7z",
+          #    os: windows-2019,
+          #    environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
+          #  }
         - {
             name: "Linux latest Clang", artifact: "Linux.7z",
             os: ubuntu-latest,
@@ -316,10 +316,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {
-            name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
-            os: ubuntu-latest
-          }
+          # - {
+          #     name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
+          #     os: ubuntu-latest
+          #   }
         - {
             name: "Windows Latest MinGW", artifact: "Windows-MinGW.7z",
             os: ubuntu-latest
